@@ -5,9 +5,9 @@ import argparse
 from dotenv import load_dotenv
 from pathlib import Path
 
-import openai
-import simfin
-from ollama import Ollama  # Assuming you've saved the Ollama class in a file named ollama.py
+import backend.services.openai as openai
+import backend.services.simfin as simfin
+from backend.services.ollama import Ollama  # Assuming you've saved the Ollama class in a file named ollama.py
 
 dotenv_path = Path(".env")
 load_dotenv(dotenv_path=dotenv_path)
@@ -18,7 +18,7 @@ ollama_url = os.environ.get("OLLAMA_URL", "http://localhost:11434")
 
 # Replace with the ticker, year, and period you want to analyze
 ticker = "AAPL"
-year = "2023"
+year = "2024"
 period = "q1"
 
 
@@ -78,7 +78,7 @@ def get_financial_data_analysis(ticker: str, year: str, period: str, use_ollama:
 
     if use_ollama:
         client = Ollama()
-        model = "llama3.1"
+        model = "llama3:8b"
     else:
         client = openai.OpenAI(api_key=openai_token)
         model = "gpt-4o-mini"

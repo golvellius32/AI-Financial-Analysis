@@ -1,7 +1,7 @@
 import requests
 import base64
 
-class Ollama:
+class ollama:
     def __init__(self):
         self.base_url = "http://localhost:11434"
 

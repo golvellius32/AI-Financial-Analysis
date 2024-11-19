@@ -3,9 +3,9 @@ import json
 import argparse
 from dotenv import load_dotenv
 from pathlib import Path
-from main import get_financial_data_analysis
-import openai
-from ollama import Ollama
+from backend.main import get_financial_data_analysis
+import backend.services.openai as openai
+from backend.services.ollama import Ollama
 from datetime import datetime
 
 # Load environment variables

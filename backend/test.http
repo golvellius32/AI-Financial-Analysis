@@ -1,0 +1,10 @@
+### Test analyze endpoint
+POST http://localhost:5000/api/analyze
+Content-Type: application/json
+
+{
+    "ticker": "AAPL",
+    "year": "2024",
+    "period": "q1",
+    "useOllama": true
+}
